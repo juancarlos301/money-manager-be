@@ -1,13 +1,13 @@
-import { RequestHandler } from "express";
-import { User } from "../../database/models";
+import { RequestHandler } from 'express';
+import { User } from '../../database/models';
 
 export const createUser: RequestHandler = (req, res) => {
   try {
-    const { email, password, name, role, client_id } = req.body;
+    const { email, password, name, role } = req.body;
 
-    if (!email || !password || !name || !role || !client_id) {
+    if (!email || !password || !name || !role) {
       return res.status(400).send({
-        message: "Please pass email, name, role and password.",
+        message: 'Please pass email, name, role and password.',
         body: req.body,
       });
     }
@@ -26,7 +26,7 @@ export const createUser: RequestHandler = (req, res) => {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "Server error. Please try again.",
+      message: 'Server error. Please try again.',
     });
   }
 };

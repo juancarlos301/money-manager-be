@@ -38,7 +38,7 @@ export const logIn: RequestHandler = (req, res) => {
             token = jwt.sign(restrictUserInfo(JSON.parse(JSON.stringify(user))), secretJWTKey, {
               expiresIn: 86400 * 20,
             });
-            res.json({ success: true, token: 'JWT ' + token });
+            res.json({ success: true, data: { token: 'JWT ' + token } });
           } else {
             return res.status(400).send({
               message: 'Authentication failed. Wrong password.',
