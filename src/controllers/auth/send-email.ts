@@ -70,7 +70,6 @@ const generateRandomPassword = (length: number) => {
 const sendMessageToEmail = async (email: string, newPassword: string) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: process.env.host,
       port: 465,
       secure: true,
       auth: {
