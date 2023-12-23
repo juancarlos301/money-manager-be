@@ -37,6 +37,7 @@ export const sendEmail: RequestHandler = async (req, res) => {
       },
       {
         where: { id: user.id },
+        individualHooks: true,
       }
     )
       .then(async (user) => {
@@ -48,6 +49,7 @@ export const sendEmail: RequestHandler = async (req, res) => {
         res.status(400).send({ success: false, data: { message: error } });
       });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       success: false,
       message: 'Server error. Please try again.',
@@ -70,8 +72,7 @@ const generateRandomPassword = (length: number) => {
 const sendMessageToEmail = async (email: string, newPassword: string) => {
   try {
     const transporter = nodemailer.createTransport({
-      port: 465,
-      secure: true,
+      service: 'gmail',
       auth: {
         user: process.env.nodemailer_user,
         pass: process.env.nodemailer_password,
