@@ -1,1 +1,1 @@
-export { createUser, logIn, getAllUsers } from './auth';
+export { createUser, logIn, getAllUsers, restorePassword, sendEmail } from './auth';

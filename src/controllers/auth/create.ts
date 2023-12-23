@@ -18,7 +18,7 @@ export const createUser: RequestHandler = (req, res) => {
       name,
       deleted: false,
     })
-      .then((user) => res.status(201).send({ sucess: true, data: { user } }))
+      .then((user) => res.status(201).send({ success: true, data: { user } }))
       .catch((error) => {
         console.log(error);
         res.status(400).send(error);
