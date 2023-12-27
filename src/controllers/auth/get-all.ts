@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 import Sequelize, { Op, WhereOptions } from 'sequelize';
 import { chPerm, decodeJWT } from '../../helpers';
 
-import Users from '../../database/models/user.model';
+import { User } from '../../database/models';
 import { UserType } from '../../types';
 
 export const getAllUsers: RequestHandler = async (req, res) => {
@@ -34,10 +34,10 @@ export const getAllUsers: RequestHandler = async (req, res) => {
 
     if (role) filter.role = role;
 
-    const users = await Users.findAll({
+    const users = await User.findAll({
       where: filter,
     });
-    return res.status(200).json({ users });
+    return res.status(200).json({ sucess: true, data: { users } });
   } catch (err) {
     return res.status(500);
   }
