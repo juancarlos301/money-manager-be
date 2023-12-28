@@ -4,5 +4,5 @@ export type RegisterType = {
   purpuse: string;
   value: number;
   deleted: boolean;
-  created_at: Date;
+  createdAt: Date;
 };

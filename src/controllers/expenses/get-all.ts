@@ -25,7 +25,7 @@ export const getAllExpenses: RequestHandler = async (req, res) => {
       const startDate = dayjs(start_date).startOf('day');
       const endDate = dayjs(end_date).endOf('day');
 
-      filter.created_at = {
+      filter.createdAt = {
         [Op.between]: [startDate.toDate(), endDate.toDate()],
       };
     }
