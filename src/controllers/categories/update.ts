@@ -13,11 +13,11 @@ export const updateCategory: RequestHandler = async (req, res) => {
       });
     }
 
-    const { name, icon, deleted, id, purpuse } = req.body;
+    const { name, icon, deleted, id, purpose } = req.body;
 
-    if (!name || !icon || !id || !purpuse) {
+    if (!name || !icon || !id || !purpose) {
       return res.status(400).send({
-        message: 'Please pass name, purpuse, icon and id .',
+        message: 'Please pass name, purpose, icon and id .',
         body: req.body,
       });
     }
@@ -26,7 +26,7 @@ export const updateCategory: RequestHandler = async (req, res) => {
       {
         name,
         icon,
-        purpuse,
+        purpose,
         deleted: !!deleted,
       },
       { where: { id } }

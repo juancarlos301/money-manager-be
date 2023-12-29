@@ -26,7 +26,7 @@ export const updateExpense: RequestHandler = async (req, res) => {
       {
         category,
         value,
-        purpuse: 'expenses',
+        purpose: 'expenses',
         deleted: !!deleted,
       },
       { where: { id } }

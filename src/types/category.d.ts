@@ -1,6 +1,6 @@
 export type CategoryType = {
   name: string;
-  purpuse: string;
+  purpose: string;
   icon: string;
   deleted: false;
 };

@@ -17,7 +17,7 @@ export const getAllIncomes: RequestHandler = async (req, res) => {
     }
     let { start_date, end_date, category } = req.body;
 
-    let filter: WhereOptions<RegisterType> = { deleted: false, purpuse: 'incomes' };
+    let filter: WhereOptions<RegisterType> = { deleted: false, purpose: 'incomes' };
 
     if (category) filter.category = category;
 

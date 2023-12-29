@@ -26,7 +26,7 @@ export const updateIncome: RequestHandler = async (req, res) => {
       {
         category,
         value,
-        purpuse: 'incomes',
+        purpose: 'incomes',
         deleted: !!deleted,
       },
       { where: { id } }
