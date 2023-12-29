@@ -1,7 +1,7 @@
 export type RegisterType = {
   id: number;
   category: string;
-  purpuse: string;
+  purpose: string;
   value: number;
   deleted: boolean;
   createdAt: Date;

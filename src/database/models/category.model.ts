@@ -27,7 +27,7 @@ class Category extends Model {
   @Column({
     type: DataType.STRING(50),
   })
-  declare purpuse: string;
+  declare purpose: string;
 
   @Column({
     type: DataType.BOOLEAN,

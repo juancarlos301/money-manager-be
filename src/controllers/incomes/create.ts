@@ -14,7 +14,7 @@ export const createIncome: RequestHandler = (req, res) => {
     Register.create({
       category,
       value,
-      purpuse: 'incomes',
+      purpose: 'incomes',
       deleted: false,
     })
       .then((register) => res.status(201).send({ success: true, data: { expense: register } }))

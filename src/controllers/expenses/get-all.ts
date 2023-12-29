@@ -17,7 +17,7 @@ export const getAllExpenses: RequestHandler = async (req, res) => {
     }
     let { start_date, end_date, category } = req.body;
 
-    let filter: WhereOptions<RegisterType> = { deleted: false, purpuse: 'expenses' };
+    let filter: WhereOptions<RegisterType> = { deleted: false, purpose: 'expenses' };
 
     if (category) filter.category = category;
 

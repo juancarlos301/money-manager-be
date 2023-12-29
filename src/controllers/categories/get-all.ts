@@ -14,11 +14,11 @@ export const getAllCategories: RequestHandler = async (req, res) => {
         message: "You don't have permission to view clients",
       });
     }
-    let { purpuse } = req.body;
+    let { purpose } = req.body;
 
     let filter: WhereOptions<CategoryType> = { deleted: false };
 
-    if (purpuse) filter.purpuse = purpuse;
+    if (purpose) filter.purpose = purpose;
 
     const categories = await Category.findAll({
       where: filter,
