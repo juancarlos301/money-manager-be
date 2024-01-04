@@ -2,3 +2,4 @@ export { createUser, logIn, getAllUsers, restorePassword, sendEmail } from './au
 export { createExpense, updateExpense, getAllExpenses } from './expenses';
 export { createIncome, getAllIncomes, updateIncome } from './incomes';
 export { createCategory, getAllCategories, updateCategory } from './categories';
+export { getBalance } from './balance';

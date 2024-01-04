@@ -3,7 +3,7 @@ import { Op, WhereOptions } from 'sequelize';
 import dayjs from 'dayjs';
 
 import { chPerm, decodeJWT } from '../../helpers';
-import { Register } from '../../database/models';
+import { Register, Category } from '../../database/models';
 import { RegisterType } from '../../types';
 
 export const getAllIncomes: RequestHandler = async (req, res) => {
@@ -32,6 +32,9 @@ export const getAllIncomes: RequestHandler = async (req, res) => {
 
     const incomes = await Register.findAll({
       where: filter,
+      include: {
+        model: Category,
+      },
     });
     return res.status(200).json({ success: true, data: { incomes } });
   } catch (err) {
