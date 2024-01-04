@@ -1,4 +1,5 @@
-import { Table, Model, Column, DataType } from 'sequelize-typescript';
+import { Table, Model, Column, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import Category from './category.model';
 
 @Table({
   timestamps: true,
@@ -14,10 +15,13 @@ class Register extends Model {
   })
   declare id: number;
 
+  @ForeignKey(() => Category)
   @Column({
-    type: DataType.STRING(100),
+    type: DataType.INTEGER,
   })
-  declare category: string;
+  declare category: Number;
+  @BelongsTo(() => Category)
+  declare category_info: Category;
 
   @Column({
     type: DataType.STRING(50),
