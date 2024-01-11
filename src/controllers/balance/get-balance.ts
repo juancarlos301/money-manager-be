@@ -35,20 +35,26 @@ export const getBalance: RequestHandler = async (req, res) => {
     let totalExpenses = 0;
     let totalIncomes = 0;
     let balance = 0;
+    const expenses = [];
+    const incomes = [];
 
     const data = rawFindAll(registers) as Register[];
 
     for (let register of data) {
       if (register.purpose === 'expenses') {
         totalExpenses += register.value;
+        expenses.push(register);
         balance += register.value;
       } else {
         totalIncomes += register.value;
+        incomes.push(register);
         balance -= register.value;
       }
     }
 
-    return res.status(200).json({ success: true, data: { totalExpenses, totalIncomes, balance } });
+    return res
+      .status(200)
+      .json({ success: true, data: { totalExpenses, totalIncomes, balance, incomes, expenses } });
   } catch (err) {
     return res.status(500);
   }
