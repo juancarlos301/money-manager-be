@@ -29,9 +29,9 @@ class Register extends Model {
   declare purpose: string;
 
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
   })
-  declare value: number;
+  declare value: string;
 
   @Column({
     type: DataType.BOOLEAN,

@@ -42,13 +42,13 @@ export const getBalance: RequestHandler = async (req, res) => {
 
     for (let register of data) {
       if (register.purpose === 'expenses') {
-        totalExpenses += register.value;
+        totalExpenses += parseFloat(register.value);
         expenses.push(register);
-        balance += register.value;
+        balance -= parseFloat(register.value);
       } else {
-        totalIncomes += register.value;
+        totalIncomes += parseFloat(register.value);
         incomes.push(register);
-        balance -= register.value;
+        balance += parseFloat(register.value);
       }
     }
 
